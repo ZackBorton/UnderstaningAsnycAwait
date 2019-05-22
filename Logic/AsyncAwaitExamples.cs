@@ -50,8 +50,8 @@ namespace Logic
             HttpClient client = new HttpClient();
 
             // Allows us to run both tasks concurrently then await both responses
-            var taskOne = client.GetAsync("SomeExampleSite");
-            var taskTwo = client.GetAsync("SomeExampleSite");
+            var taskOne = client.GetAsync("http://localhost:5003/api/Example/CpuBoundAsync");
+            var taskTwo = client.GetAsync("http://localhost:5003/api/Example/CpuBoundAsync");
 
             // Super important other work that needs to run for business reasons
             // To note if any portion of an operation is asynchronous, the entire operation is asynchronous.
@@ -69,7 +69,7 @@ namespace Logic
         /// <returns></returns>
         public async Task<long> CpuBoundAsync()
         {
-            return await Task.Run(() => _otherWork.SlowCalculation(1000000000));
+            return await Task.Run(() => _otherWork.SlowCalculation(100));
         }
 
         // As of C# 8 and dotnetcore 3 the language now supports non scalar return values

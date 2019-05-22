@@ -19,7 +19,7 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// 
+        ///     An example of CPU bound asynchronous code
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -31,7 +31,7 @@ namespace API.Controllers
         }
 
         /// <summary>
-        /// 
+        ///     An example of IO bound async method
         /// </summary>
         /// <returns></returns>
         [HttpGet]
