@@ -54,7 +54,9 @@ namespace Logic
             var taskTwo = client.GetAsync("http://localhost:5003/api/Example/CpuBoundAsync");
 
             // Super important other work that needs to run for business reasons
-            // To note if any portion of an operation is asynchronous, the entire operation is asynchronous.
+            // To note if any portion of an operation is asynchronous, 
+            // regardless of if there is synchronous work the entire operation is asynchronous
+            // unless keywords like result are used.
             _otherWork.ImportantWork();
 
             // Will return await all results, if any task fails then the exception bubbles up causing all tasks to fail 
