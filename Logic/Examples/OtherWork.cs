@@ -28,6 +28,11 @@ namespace Logic.Examples
         /// <returns></returns>
         public void ImportantWork()
         {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"My point is proven {i} times");
+            }
+
             Console.WriteLine("This is super important work, trust me I'm an Engineer");
         }
     }
