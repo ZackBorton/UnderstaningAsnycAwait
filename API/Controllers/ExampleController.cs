@@ -42,5 +42,19 @@ namespace API.Controllers
             await _asyncAwaitExamples.IoBoundCodeAsync();
             return Ok("Success");
         }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("IoBoundCodeAsync")]
+        [ProducesResponseType(200)]
+        public async Task<IActionResult> ComplexCPUBoundLogicAsnyc()
+        {
+            await _asyncAwaitExamples.ComplexCPUBoundLogicAsync();
+            return Ok("Success");
+        }
+        
     }
 }

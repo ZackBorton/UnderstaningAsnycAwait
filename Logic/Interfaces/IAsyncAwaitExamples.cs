@@ -20,5 +20,11 @@ namespace Logic.Interfaces
         /// </summary>
         /// <returns></returns>
         Task<long> CpuBoundAsync();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        Task<bool> ComplexCPUBoundLogicAsync();
     }
 }

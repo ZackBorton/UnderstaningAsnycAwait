@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using Logic.Interfaces;
 
 namespace Logic.Examples
@@ -16,6 +17,7 @@ namespace Logic.Examples
             if (input == 0)
                 return input;
 
+            Thread.Sleep(10);
             return SlowCalculation(input - 1);
         }
 

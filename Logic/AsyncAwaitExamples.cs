@@ -1,6 +1,8 @@
 ﻿using System.Collections;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Logic.Interfaces;
 
@@ -66,36 +68,32 @@ namespace Logic
         /// <summary>
         ///     Asynchronous Call to calculate
         ///     CPU bound code. This is when you want to do a heavy in-app calculations.
-        ///     In this case we can use the await keyword on an async method that will be running on a background thread using Task.Run()
+        ///     In this case we can use the await keyword on an async method that will be running o
+        /// n a background thread using Task.Run()
         /// </summary>
         /// <returns></returns>
         public async Task<long> CpuBoundAsync()
         {
-            return await Task.Run(() => _otherWork.SlowCalculation(1000000000));
+            return await Task.Run(() => _otherWork.SlowCalculation(1000));
         }
 
-        // As of C# 8 and dotnetcore 3 the language now supports non scalar return values
-        /// <summary>
-        ///     To note this feature is only helpful in C# 8 (dotnet core 3) as of the making of this repo it is still in beta
-        /// </summary>
-        /// <returns></returns>
-        /*
-        public async Task Example()
+
+        public async Task<bool> ComplexCPUBoundLogicAsync()
         {
-            await foreach(var dataPoint in DataSet())
-            {
-                Console.WriteLine(dataPoint);
-            }
+            var tokenSource = new CancellationTokenSource();
+            CancellationToken token = tokenSource.Token;
+            Task t;
+            
+            // Create a thread safe data structure to contain the tasks that will be executed
+            var tasks = new ConcurrentBag<Task>();
+            t = Task.Factory.StartNew( () => IntensiveCalculation(token), token);
+            tasks.Add(t);
+            return true;
         }
- 
-        static async IAsyncEnumerable<int> DataSet()
+
+        public void IntensiveCalculation(CancellationToken token)
         {
-            for (int i = 1; i <= 1000; i++)
-            {
-                await Task.Delay(100);//Simulate waiting for data to come through. 
-                yield return i;
-            }
+            return;
         }
-        */
     }
 }
