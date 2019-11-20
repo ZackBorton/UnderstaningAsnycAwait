@@ -1,9 +1,3 @@
-// Type: Logic.AsyncAwaitExamples 
-// Assembly: Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: DE820455-A7E9-4B31-8380-CDA6046B711A
-// Location: /Users/zackborton/Documents/Projects/UnderstaningAsnycAwait/Logic/bin/Debug/netcoreapp2.2/Logic.dll
-// Sequence point data from /Users/zackborton/Documents/Projects/UnderstaningAsnycAwait/Logic/bin/Debug/netcoreapp2.2/Logic.pdb
-
 .class public auto ansi beforefieldinit
   Logic.AsyncAwaitExamples
     extends [System.Runtime]System.Object
@@ -15,9 +9,6 @@
       extends [System.Runtime]System.Object
       implements [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine
   {
-    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
-      = (01 00 00 00 )
-
     .field public int32 '<>1__state'
 
     .field public valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder '<>t__builder'
@@ -31,18 +22,6 @@
     .field private class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> '<taskTwo>5__3'
 
     .field private valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]> '<>u__1'
-
-    .method public hidebysig specialname rtspecialname instance void
-      .ctor() cil managed
-    {
-      .maxstack 8
-
-      IL_0000: ldarg.0      // this
-      IL_0001: call         instance void [System.Runtime]System.Object::.ctor()
-      IL_0006: nop
-      IL_0007: ret
-
-    } // end of method '<IoBoundCodeAsync>d__2'::.ctor
 
     .method private final hidebysig virtual newslot instance void
       MoveNext() cil managed
@@ -690,39 +669,3 @@
     IL_003a: ret
 
   } // end of method AsyncAwaitExamples::ComplexCPUBoundLogicAsync
-
-  .method public hidebysig instance void
-    IntensiveCalculation(
-      valuetype [System.Runtime]System.Threading.CancellationToken token
-    ) cil managed
-  {
-    .maxstack 8
-
-    // [96 9 - 96 10]
-    IL_0000: nop
-
-    // [97 13 - 97 20]
-    IL_0001: br.s         IL_0003
-
-    // [98 9 - 98 10]
-    IL_0003: ret
-
-  } // end of method AsyncAwaitExamples::IntensiveCalculation
-
-  .method private hidebysig instance int64
-    '<CpuBoundAsync>b__3_0'() cil managed
-  {
-    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
-      = (01 00 00 00 )
-    .maxstack 8
-
-    // [77 41 - 77 72]
-    IL_0000: ldarg.0      // this
-    IL_0001: ldfld        class Logic.Interfaces.IOtherWork Logic.AsyncAwaitExamples::_otherWork
-    IL_0006: ldc.i4.s     100 // 0x64
-    IL_0008: conv.i8
-    IL_0009: callvirt     instance int64 Logic.Interfaces.IOtherWork::SlowCalculation(int64)
-    IL_000e: ret
-
-  } // end of method AsyncAwaitExamples::'<CpuBoundAsync>b__3_0'
-} // end of class Logic.AsyncAwaitExamples

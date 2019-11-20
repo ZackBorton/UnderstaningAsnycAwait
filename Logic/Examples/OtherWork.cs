@@ -30,7 +30,7 @@ namespace Logic.Examples
         {
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine($"My point is proven {i} times");
+                // Probably doing something here
             }
 
             Console.WriteLine("This is super important work, trust me I'm an Engineer");
