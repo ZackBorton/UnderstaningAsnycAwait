@@ -24,7 +24,7 @@ namespace Logic
     ///     https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/how-to-extend-the-async-walkthrough-by-using-task-whenall
     /// </Resources>
     /// <General>
-    ///     The compiler covers creates an asynchronous state machine as a struct on the stack
+    ///     The compiler creates an asynchronous state machine as a struct on the stack
     ///     When an I/O operation starts, code on that thread ends allowing the thread to be returned
     ///     to the thread pool, examples are calls to external servers, etc that might be long running
     ///     When the I/O operation returns then a new thread begins the work from the await
