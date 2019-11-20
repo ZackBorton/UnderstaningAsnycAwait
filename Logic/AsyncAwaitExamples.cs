@@ -17,7 +17,7 @@ namespace Logic
     ///     operations we can use the threads to service new web requests while we wait for a response
     /// </Benefits>
     /// <General>
-    ///     The compiler under the cover creates an asynchronous state machine as a struct on the stack
+    ///     The compiler under the covers creates an asynchronous state machine as a struct on the stack
     ///     When an I/O operation starts, code on that thread ends allowing the thread to be returned to the thread pool, examples are calls to external servers, etc that might be long running
     ///     When the I/O operation returns then a new thread begins the work from the await
     ///     It is moved to heap inside the AwaitUnsafeOnCompleted function (deeper into the mechanism it is cast to IAsyncStateMachine which triggers the boxing). 
@@ -39,6 +39,8 @@ namespace Logic
         {
             _otherWork = otherWork;
         }
+        
+        //IAsyncStateMachine 
 
         /// <summary>
         ///     I/O bound code is an appropriate example of when to use async code.

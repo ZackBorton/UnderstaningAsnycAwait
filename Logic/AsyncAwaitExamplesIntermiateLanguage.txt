@@ -1,0 +1,728 @@
+// Type: Logic.AsyncAwaitExamples 
+// Assembly: Logic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+// MVID: DE820455-A7E9-4B31-8380-CDA6046B711A
+// Location: /Users/zackborton/Documents/Projects/UnderstaningAsnycAwait/Logic/bin/Debug/netcoreapp2.2/Logic.dll
+// Sequence point data from /Users/zackborton/Documents/Projects/UnderstaningAsnycAwait/Logic/bin/Debug/netcoreapp2.2/Logic.pdb
+
+.class public auto ansi beforefieldinit
+  Logic.AsyncAwaitExamples
+    extends [System.Runtime]System.Object
+    implements Logic.Interfaces.IAsyncAwaitExamples
+{
+
+  .class nested private sealed auto ansi beforefieldinit
+    '<IoBoundCodeAsync>d__2'
+      extends [System.Runtime]System.Object
+      implements [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
+      = (01 00 00 00 )
+
+    .field public int32 '<>1__state'
+
+    .field public valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder '<>t__builder'
+
+    .field public class Logic.AsyncAwaitExamples '<>4__this'
+
+    .field private class [System.Net.Http]System.Net.Http.HttpClient '<client>5__1'
+
+    .field private class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> '<taskOne>5__2'
+
+    .field private class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> '<taskTwo>5__3'
+
+    .field private valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]> '<>u__1'
+
+    .method public hidebysig specialname rtspecialname instance void
+      .ctor() cil managed
+    {
+      .maxstack 8
+
+      IL_0000: ldarg.0      // this
+      IL_0001: call         instance void [System.Runtime]System.Object::.ctor()
+      IL_0006: nop
+      IL_0007: ret
+
+    } // end of method '<IoBoundCodeAsync>d__2'::.ctor
+
+    .method private final hidebysig virtual newslot instance void
+      MoveNext() cil managed
+    {
+      .override method instance void [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine::MoveNext()
+      .maxstack 4
+      .locals init (
+        [0] int32 V_0,
+        [1] valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]> V_1,
+        [2] class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2' V_2,
+        [3] class [System.Runtime]System.Exception V_3
+      )
+
+      IL_0000: ldarg.0      // this
+      IL_0001: ldfld        int32 Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>1__state'
+      IL_0006: stloc.0      // V_0
+      .try
+      {
+
+        IL_0007: ldloc.0      // V_0
+        IL_0008: brfalse.s    IL_000c
+        IL_000a: br.s         IL_0011
+        IL_000c: br           IL_00aa
+
+        // [51 9 - 51 10]
+        IL_0011: nop
+
+        // [52 13 - 52 50]
+        IL_0012: ldarg.0      // this
+        IL_0013: newobj       instance void [System.Net.Http]System.Net.Http.HttpClient::.ctor()
+        IL_0018: stfld        class [System.Net.Http]System.Net.Http.HttpClient Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<client>5__1'
+
+        // [55 13 - 55 94]
+        IL_001d: ldarg.0      // this
+        IL_001e: ldarg.0      // this
+        IL_001f: ldfld        class [System.Net.Http]System.Net.Http.HttpClient Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<client>5__1'
+        IL_0024: ldstr        "http://localhost:5003/api/Example/CpuBoundAsync"
+        IL_0029: callvirt     instance class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> [System.Net.Http]System.Net.Http.HttpClient::GetAsync(string)
+        IL_002e: stfld        class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<taskOne>5__2'
+
+        // [56 13 - 56 94]
+        IL_0033: ldarg.0      // this
+        IL_0034: ldarg.0      // this
+        IL_0035: ldfld        class [System.Net.Http]System.Net.Http.HttpClient Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<client>5__1'
+        IL_003a: ldstr        "http://localhost:5003/api/Example/CpuBoundAsync"
+        IL_003f: callvirt     instance class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> [System.Net.Http]System.Net.Http.HttpClient::GetAsync(string)
+        IL_0044: stfld        class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<taskTwo>5__3'
+
+        // [62 13 - 62 40]
+        IL_0049: ldarg.0      // this
+        IL_004a: ldfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>4__this'
+        IL_004f: ldfld        class Logic.Interfaces.IOtherWork Logic.AsyncAwaitExamples::_otherWork
+        IL_0054: callvirt     instance void Logic.Interfaces.IOtherWork::ImportantWork()
+        IL_0059: nop
+
+        // [65 13 - 65 50]
+        IL_005a: ldc.i4.2
+        IL_005b: newarr       class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage>
+        IL_0060: dup
+        IL_0061: ldc.i4.0
+        IL_0062: ldarg.0      // this
+        IL_0063: ldfld        class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<taskOne>5__2'
+        IL_0068: stelem.ref
+        IL_0069: dup
+        IL_006a: ldc.i4.1
+        IL_006b: ldarg.0      // this
+        IL_006c: ldfld        class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<taskTwo>5__3'
+        IL_0071: stelem.ref
+        IL_0072: call         class [System.Runtime]System.Threading.Tasks.Task`1<!!0/*class [System.Net.Http]System.Net.Http.HttpResponseMessage*/[]> [System.Runtime]System.Threading.Tasks.Task::WhenAll<class [System.Net.Http]System.Net.Http.HttpResponseMessage>(class [System.Runtime]System.Threading.Tasks.Task`1<!!0/*class [System.Net.Http]System.Net.Http.HttpResponseMessage*/>[])
+        IL_0077: callvirt     instance valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<!0/*class [System.Net.Http]System.Net.Http.HttpResponseMessage[]*/> class [System.Runtime]System.Threading.Tasks.Task`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]>::GetAwaiter()
+        IL_007c: stloc.1      // V_1
+
+        IL_007d: ldloca.s     V_1
+        IL_007f: call         instance bool valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]>::get_IsCompleted()
+        IL_0084: brtrue.s     IL_00c6
+        IL_0086: ldarg.0      // this
+        IL_0087: ldc.i4.0
+        IL_0088: dup
+        IL_0089: stloc.0      // V_0
+        IL_008a: stfld        int32 Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>1__state'
+        IL_008f: ldarg.0      // this
+        IL_0090: ldloc.1      // V_1
+        IL_0091: stfld        valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>u__1'
+        IL_0096: ldarg.0      // this
+        IL_0097: stloc.2      // V_2
+        IL_0098: ldarg.0      // this
+        IL_0099: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>t__builder'
+        IL_009e: ldloca.s     V_1
+        IL_00a0: ldloca.s     V_2
+        IL_00a2: call         instance void [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]>, class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'>(!!0/*valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]>*/&, !!1/*class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'*/&)
+        IL_00a7: nop
+        IL_00a8: leave.s      IL_00fc
+        IL_00aa: ldarg.0      // this
+        IL_00ab: ldfld        valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>u__1'
+        IL_00b0: stloc.1      // V_1
+        IL_00b1: ldarg.0      // this
+        IL_00b2: ldflda       valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]> Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>u__1'
+        IL_00b7: initobj      valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]>
+        IL_00bd: ldarg.0      // this
+        IL_00be: ldc.i4.m1
+        IL_00bf: dup
+        IL_00c0: stloc.0      // V_0
+        IL_00c1: stfld        int32 Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>1__state'
+        IL_00c6: ldloca.s     V_1
+        IL_00c8: call         instance !0/*class [System.Net.Http]System.Net.Http.HttpResponseMessage[]*/ valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<class [System.Net.Http]System.Net.Http.HttpResponseMessage[]>::GetResult()
+        IL_00cd: pop
+        IL_00ce: leave.s      IL_00e8
+      } // end of .try
+      catch [System.Runtime]System.Exception
+      {
+
+        IL_00d0: stloc.3      // V_3
+        IL_00d1: ldarg.0      // this
+        IL_00d2: ldc.i4.s     -2 // 0xfe
+        IL_00d4: stfld        int32 Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>1__state'
+        IL_00d9: ldarg.0      // this
+        IL_00da: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>t__builder'
+        IL_00df: ldloc.3      // V_3
+        IL_00e0: call         instance void [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetException(class [System.Runtime]System.Exception)
+        IL_00e5: nop
+        IL_00e6: leave.s      IL_00fc
+      } // end of catch
+
+      // [66 9 - 66 10]
+      IL_00e8: ldarg.0      // this
+      IL_00e9: ldc.i4.s     -2 // 0xfe
+      IL_00eb: stfld        int32 Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>1__state'
+
+      IL_00f0: ldarg.0      // this
+      IL_00f1: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>t__builder'
+      IL_00f6: call         instance void [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder::SetResult()
+      IL_00fb: nop
+      IL_00fc: ret
+
+    } // end of method '<IoBoundCodeAsync>d__2'::MoveNext
+
+    .method private final hidebysig virtual newslot instance void
+      SetStateMachine(
+        class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine stateMachine
+      ) cil managed
+    {
+      .custom instance void [System.Diagnostics.Debug]System.Diagnostics.DebuggerHiddenAttribute::.ctor()
+        = (01 00 00 00 )
+      .override method instance void [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine::SetStateMachine(class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine)
+      .maxstack 8
+
+      IL_0000: ret
+
+    } // end of method '<IoBoundCodeAsync>d__2'::SetStateMachine
+  } // end of class '<IoBoundCodeAsync>d__2'
+
+  .class nested private sealed auto ansi beforefieldinit
+    '<CpuBoundAsync>d__3'
+      extends [System.Runtime]System.Object
+      implements [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
+      = (01 00 00 00 )
+
+    .field public int32 '<>1__state'
+
+    .field public valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> '<>t__builder'
+
+    .field public class Logic.AsyncAwaitExamples '<>4__this'
+
+    .field private int64 '<>s__1'
+
+    .field private valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64> '<>u__1'
+
+    .method public hidebysig specialname rtspecialname instance void
+      .ctor() cil managed
+    {
+      .maxstack 8
+
+      IL_0000: ldarg.0      // this
+      IL_0001: call         instance void [System.Runtime]System.Object::.ctor()
+      IL_0006: nop
+      IL_0007: ret
+
+    } // end of method '<CpuBoundAsync>d__3'::.ctor
+
+    .method private final hidebysig virtual newslot instance void
+      MoveNext() cil managed
+    {
+      .override method instance void [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine::MoveNext()
+      .maxstack 3
+      .locals init (
+        [0] int32 V_0,
+        [1] int64 V_1,
+        [2] valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64> V_2,
+        [3] class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3' V_3,
+        [4] class [System.Runtime]System.Exception V_4
+      )
+
+      IL_0000: ldarg.0      // this
+      IL_0001: ldfld        int32 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>1__state'
+      IL_0006: stloc.0      // V_0
+      .try
+      {
+
+        IL_0007: ldloc.0      // V_0
+        IL_0008: brfalse.s    IL_000c
+        IL_000a: br.s         IL_000e
+        IL_000c: br.s         IL_0058
+
+        // [76 9 - 76 10]
+        IL_000e: nop
+
+        // [77 13 - 77 74]
+        IL_000f: ldarg.0      // this
+        IL_0010: ldfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>4__this'
+        IL_0015: ldftn        instance int64 Logic.AsyncAwaitExamples::'<CpuBoundAsync>b__3_0'()
+        IL_001b: newobj       instance void class [System.Runtime]System.Func`1<int64>::.ctor(object, native int)
+        IL_0020: call         class [System.Runtime]System.Threading.Tasks.Task`1<!!0/*int64*/> [System.Runtime]System.Threading.Tasks.Task::Run<int64>(class [System.Runtime]System.Func`1<!!0/*int64*/>)
+        IL_0025: callvirt     instance valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<!0/*int64*/> class [System.Runtime]System.Threading.Tasks.Task`1<int64>::GetAwaiter()
+        IL_002a: stloc.2      // V_2
+
+        IL_002b: ldloca.s     V_2
+        IL_002d: call         instance bool valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64>::get_IsCompleted()
+        IL_0032: brtrue.s     IL_0074
+        IL_0034: ldarg.0      // this
+        IL_0035: ldc.i4.0
+        IL_0036: dup
+        IL_0037: stloc.0      // V_0
+        IL_0038: stfld        int32 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>1__state'
+        IL_003d: ldarg.0      // this
+        IL_003e: ldloc.2      // V_2
+        IL_003f: stfld        valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>u__1'
+        IL_0044: ldarg.0      // this
+        IL_0045: stloc.3      // V_3
+        IL_0046: ldarg.0      // this
+        IL_0047: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>t__builder'
+        IL_004c: ldloca.s     V_2
+        IL_004e: ldloca.s     V_3
+        IL_0050: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64>::AwaitUnsafeOnCompleted<valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64>, class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'>(!!0/*valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64>*/&, !!1/*class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'*/&)
+        IL_0055: nop
+        IL_0056: leave.s      IL_00b9
+        IL_0058: ldarg.0      // this
+        IL_0059: ldfld        valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>u__1'
+        IL_005e: stloc.2      // V_2
+        IL_005f: ldarg.0      // this
+        IL_0060: ldflda       valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>u__1'
+        IL_0065: initobj      valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64>
+        IL_006b: ldarg.0      // this
+        IL_006c: ldc.i4.m1
+        IL_006d: dup
+        IL_006e: stloc.0      // V_0
+        IL_006f: stfld        int32 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>1__state'
+        IL_0074: ldarg.0      // this
+        IL_0075: ldloca.s     V_2
+        IL_0077: call         instance !0/*int64*/ valuetype [System.Runtime]System.Runtime.CompilerServices.TaskAwaiter`1<int64>::GetResult()
+        IL_007c: stfld        int64 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>s__1'
+        IL_0081: ldarg.0      // this
+        IL_0082: ldfld        int64 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>s__1'
+        IL_0087: stloc.1      // V_1
+        IL_0088: leave.s      IL_00a4
+      } // end of .try
+      catch [System.Runtime]System.Exception
+      {
+
+        IL_008a: stloc.s      V_4
+        IL_008c: ldarg.0      // this
+        IL_008d: ldc.i4.s     -2 // 0xfe
+        IL_008f: stfld        int32 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>1__state'
+        IL_0094: ldarg.0      // this
+        IL_0095: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>t__builder'
+        IL_009a: ldloc.s      V_4
+        IL_009c: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64>::SetException(class [System.Runtime]System.Exception)
+        IL_00a1: nop
+        IL_00a2: leave.s      IL_00b9
+      } // end of catch
+
+      // [79 9 - 79 10]
+      IL_00a4: ldarg.0      // this
+      IL_00a5: ldc.i4.s     -2 // 0xfe
+      IL_00a7: stfld        int32 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>1__state'
+
+      IL_00ac: ldarg.0      // this
+      IL_00ad: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>t__builder'
+      IL_00b2: ldloc.1      // V_1
+      IL_00b3: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64>::SetResult(!0/*int64*/)
+      IL_00b8: nop
+      IL_00b9: ret
+
+    } // end of method '<CpuBoundAsync>d__3'::MoveNext
+
+    .method private final hidebysig virtual newslot instance void
+      SetStateMachine(
+        class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine stateMachine
+      ) cil managed
+    {
+      .custom instance void [System.Diagnostics.Debug]System.Diagnostics.DebuggerHiddenAttribute::.ctor()
+        = (01 00 00 00 )
+      .override method instance void [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine::SetStateMachine(class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine)
+      .maxstack 8
+
+      IL_0000: ret
+
+    } // end of method '<CpuBoundAsync>d__3'::SetStateMachine
+  } // end of class '<CpuBoundAsync>d__3'
+
+  .class nested private sealed auto ansi beforefieldinit
+    '<>c__DisplayClass4_0'
+      extends [System.Runtime]System.Object
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
+      = (01 00 00 00 )
+
+    .field public class Logic.AsyncAwaitExamples '<>4__this'
+
+    .field public valuetype [System.Runtime]System.Threading.CancellationToken token
+
+    .method public hidebysig specialname rtspecialname instance void
+      .ctor() cil managed
+    {
+      .maxstack 8
+
+      IL_0000: ldarg.0      // this
+      IL_0001: call         instance void [System.Runtime]System.Object::.ctor()
+      IL_0006: nop
+      IL_0007: ret
+
+    } // end of method '<>c__DisplayClass4_0'::.ctor
+
+    .method assembly hidebysig instance void
+      '<ComplexCPUBoundLogicAsync>b__0'() cil managed
+    {
+      .maxstack 8
+
+      // [90 46 - 90 73]
+      IL_0000: ldarg.0      // this
+      IL_0001: ldfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::'<>4__this'
+      IL_0006: ldarg.0      // this
+      IL_0007: ldfld        valuetype [System.Runtime]System.Threading.CancellationToken Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::token
+      IL_000c: call         instance void Logic.AsyncAwaitExamples::IntensiveCalculation(valuetype [System.Runtime]System.Threading.CancellationToken)
+      IL_0011: nop
+      IL_0012: ret
+
+    } // end of method '<>c__DisplayClass4_0'::'<ComplexCPUBoundLogicAsync>b__0'
+  } // end of class '<>c__DisplayClass4_0'
+
+  .class nested private sealed auto ansi beforefieldinit
+    '<ComplexCPUBoundLogicAsync>d__4'
+      extends [System.Runtime]System.Object
+      implements [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
+      = (01 00 00 00 )
+
+    .field public int32 '<>1__state'
+
+    .field public valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> '<>t__builder'
+
+    .field public class Logic.AsyncAwaitExamples '<>4__this'
+
+    .field private class Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0' '<>8__1'
+
+    .field private class [System.Threading.Tasks]System.Threading.CancellationTokenSource '<tokenSource>5__2'
+
+    .field private class [System.Runtime]System.Threading.Tasks.Task '<t>5__3'
+
+    .field private class [System.Collections.Concurrent]System.Collections.Concurrent.ConcurrentBag`1<class [System.Runtime]System.Threading.Tasks.Task> '<tasks>5__4'
+
+    .method public hidebysig specialname rtspecialname instance void
+      .ctor() cil managed
+    {
+      .maxstack 8
+
+      IL_0000: ldarg.0      // this
+      IL_0001: call         instance void [System.Runtime]System.Object::.ctor()
+      IL_0006: nop
+      IL_0007: ret
+
+    } // end of method '<ComplexCPUBoundLogicAsync>d__4'::.ctor
+
+    .method private final hidebysig virtual newslot instance void
+      MoveNext() cil managed
+    {
+      .override method instance void [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine::MoveNext()
+      .maxstack 4
+      .locals init (
+        [0] int32 V_0,
+        [1] bool V_1,
+        [2] class [System.Runtime]System.Exception V_2
+      )
+
+      IL_0000: ldarg.0      // this
+      IL_0001: ldfld        int32 Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>1__state'
+      IL_0006: stloc.0      // V_0
+      .try
+      {
+
+        IL_0007: ldarg.0      // this
+        IL_0008: newobj       instance void Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::.ctor()
+        IL_000d: stfld        class Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0' Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>8__1'
+        IL_0012: ldarg.0      // this
+        IL_0013: ldfld        class Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0' Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>8__1'
+        IL_0018: ldarg.0      // this
+        IL_0019: ldfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>4__this'
+        IL_001e: stfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::'<>4__this'
+
+        // [83 9 - 83 10]
+        IL_0023: nop
+
+        // [84 13 - 84 61]
+        IL_0024: ldarg.0      // this
+        IL_0025: newobj       instance void [System.Threading.Tasks]System.Threading.CancellationTokenSource::.ctor()
+        IL_002a: stfld        class [System.Threading.Tasks]System.Threading.CancellationTokenSource Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<tokenSource>5__2'
+
+        // [85 13 - 85 57]
+        IL_002f: ldarg.0      // this
+        IL_0030: ldfld        class Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0' Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>8__1'
+        IL_0035: ldarg.0      // this
+        IL_0036: ldfld        class [System.Threading.Tasks]System.Threading.CancellationTokenSource Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<tokenSource>5__2'
+        IL_003b: callvirt     instance valuetype [System.Runtime]System.Threading.CancellationToken [System.Threading.Tasks]System.Threading.CancellationTokenSource::get_Token()
+        IL_0040: stfld        valuetype [System.Runtime]System.Threading.CancellationToken Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::token
+
+        // [89 13 - 89 51]
+        IL_0045: ldarg.0      // this
+        IL_0046: newobj       instance void class [System.Collections.Concurrent]System.Collections.Concurrent.ConcurrentBag`1<class [System.Runtime]System.Threading.Tasks.Task>::.ctor()
+        IL_004b: stfld        class [System.Collections.Concurrent]System.Collections.Concurrent.ConcurrentBag`1<class [System.Runtime]System.Threading.Tasks.Task> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<tasks>5__4'
+
+        // [90 13 - 90 82]
+        IL_0050: ldarg.0      // this
+        IL_0051: call         class [System.Runtime]System.Threading.Tasks.TaskFactory [System.Runtime]System.Threading.Tasks.Task::get_Factory()
+        IL_0056: ldarg.0      // this
+        IL_0057: ldfld        class Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0' Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>8__1'
+        IL_005c: ldftn        instance void Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::'<ComplexCPUBoundLogicAsync>b__0'()
+        IL_0062: newobj       instance void [System.Runtime]System.Action::.ctor(object, native int)
+        IL_0067: ldarg.0      // this
+        IL_0068: ldfld        class Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0' Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>8__1'
+        IL_006d: ldfld        valuetype [System.Runtime]System.Threading.CancellationToken Logic.AsyncAwaitExamples/'<>c__DisplayClass4_0'::token
+        IL_0072: callvirt     instance class [System.Runtime]System.Threading.Tasks.Task [System.Runtime]System.Threading.Tasks.TaskFactory::StartNew(class [System.Runtime]System.Action, valuetype [System.Runtime]System.Threading.CancellationToken)
+        IL_0077: stfld        class [System.Runtime]System.Threading.Tasks.Task Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<t>5__3'
+
+        // [91 13 - 91 26]
+        IL_007c: ldarg.0      // this
+        IL_007d: ldfld        class [System.Collections.Concurrent]System.Collections.Concurrent.ConcurrentBag`1<class [System.Runtime]System.Threading.Tasks.Task> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<tasks>5__4'
+        IL_0082: ldarg.0      // this
+        IL_0083: ldfld        class [System.Runtime]System.Threading.Tasks.Task Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<t>5__3'
+        IL_0088: callvirt     instance void class [System.Collections.Concurrent]System.Collections.Concurrent.ConcurrentBag`1<class [System.Runtime]System.Threading.Tasks.Task>::Add(!0/*class [System.Runtime]System.Threading.Tasks.Task*/)
+        IL_008d: nop
+
+        // [92 13 - 92 25]
+        IL_008e: ldc.i4.1
+        IL_008f: stloc.1      // V_1
+        IL_0090: leave.s      IL_00aa
+      } // end of .try
+      catch [System.Runtime]System.Exception
+      {
+
+        IL_0092: stloc.2      // V_2
+        IL_0093: ldarg.0      // this
+        IL_0094: ldc.i4.s     -2 // 0xfe
+        IL_0096: stfld        int32 Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>1__state'
+        IL_009b: ldarg.0      // this
+        IL_009c: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>t__builder'
+        IL_00a1: ldloc.2      // V_2
+        IL_00a2: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::SetException(class [System.Runtime]System.Exception)
+        IL_00a7: nop
+        IL_00a8: leave.s      IL_00bf
+      } // end of catch
+
+      // [93 9 - 93 10]
+      IL_00aa: ldarg.0      // this
+      IL_00ab: ldc.i4.s     -2 // 0xfe
+      IL_00ad: stfld        int32 Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>1__state'
+
+      IL_00b2: ldarg.0      // this
+      IL_00b3: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>t__builder'
+      IL_00b8: ldloc.1      // V_1
+      IL_00b9: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::SetResult(!0/*bool*/)
+      IL_00be: nop
+      IL_00bf: ret
+
+    } // end of method '<ComplexCPUBoundLogicAsync>d__4'::MoveNext
+
+    .method private final hidebysig virtual newslot instance void
+      SetStateMachine(
+        class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine stateMachine
+      ) cil managed
+    {
+      .custom instance void [System.Diagnostics.Debug]System.Diagnostics.DebuggerHiddenAttribute::.ctor()
+        = (01 00 00 00 )
+      .override method instance void [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine::SetStateMachine(class [System.Runtime]System.Runtime.CompilerServices.IAsyncStateMachine)
+      .maxstack 8
+
+      IL_0000: ret
+
+    } // end of method '<ComplexCPUBoundLogicAsync>d__4'::SetStateMachine
+  } // end of class '<ComplexCPUBoundLogicAsync>d__4'
+
+  .field private initonly class Logic.Interfaces.IOtherWork _otherWork
+
+  .method public hidebysig specialname rtspecialname instance void
+    .ctor(
+      class Logic.Interfaces.IOtherWork otherWork
+    ) cil managed
+  {
+    .maxstack 8
+
+    // [38 9 - 38 56]
+    IL_0000: ldarg.0      // this
+    IL_0001: call         instance void [System.Runtime]System.Object::.ctor()
+    IL_0006: nop
+
+    // [39 9 - 39 10]
+    IL_0007: nop
+
+    // [40 13 - 40 36]
+    IL_0008: ldarg.0      // this
+    IL_0009: ldarg.1      // otherWork
+    IL_000a: stfld        class Logic.Interfaces.IOtherWork Logic.AsyncAwaitExamples::_otherWork
+
+    // [41 9 - 41 10]
+    IL_000f: ret
+
+  } // end of method AsyncAwaitExamples::.ctor
+
+  .method public final hidebysig virtual newslot instance class [System.Runtime]System.Threading.Tasks.Task
+    IoBoundCodeAsync() cil managed
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.AsyncStateMachineAttribute::.ctor(class [System.Runtime]System.Type)
+      = (
+        01 00 2f 4c 6f 67 69 63 2e 41 73 79 6e 63 41 77 // ../Logic.AsyncAw
+        61 69 74 45 78 61 6d 70 6c 65 73 2b 3c 49 6f 42 // aitExamples+<IoB
+        6f 75 6e 64 43 6f 64 65 41 73 79 6e 63 3e 64 5f // oundCodeAsync>d_
+        5f 32 00 00                                     // _2..
+      )
+      // type(class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2')
+    .custom instance void [System.Diagnostics.Debug]System.Diagnostics.DebuggerStepThroughAttribute::.ctor()
+      = (01 00 00 00 )
+    .maxstack 2
+    .locals init (
+      [0] class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2' V_0,
+      [1] valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder V_1
+    )
+
+    IL_0000: newobj       instance void Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::.ctor()
+    IL_0005: stloc.0      // V_0
+    IL_0006: ldloc.0      // V_0
+    IL_0007: ldarg.0      // this
+    IL_0008: stfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>4__this'
+    IL_000d: ldloc.0      // V_0
+    IL_000e: call         valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Create()
+    IL_0013: stfld        valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>t__builder'
+    IL_0018: ldloc.0      // V_0
+    IL_0019: ldc.i4.m1
+    IL_001a: stfld        int32 Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>1__state'
+    IL_001f: ldloc.0      // V_0
+    IL_0020: ldfld        valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>t__builder'
+    IL_0025: stloc.1      // V_1
+    IL_0026: ldloca.s     V_1
+    IL_0028: ldloca.s     V_0
+    IL_002a: call         instance void [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder::Start<class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'>(!!0/*class Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'*/&)
+    IL_002f: ldloc.0      // V_0
+    IL_0030: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder Logic.AsyncAwaitExamples/'<IoBoundCodeAsync>d__2'::'<>t__builder'
+    IL_0035: call         instance class [System.Runtime]System.Threading.Tasks.Task [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder::get_Task()
+    IL_003a: ret
+
+  } // end of method AsyncAwaitExamples::IoBoundCodeAsync
+
+  .method public final hidebysig virtual newslot instance class [System.Runtime]System.Threading.Tasks.Task`1<int64>
+    CpuBoundAsync() cil managed
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.AsyncStateMachineAttribute::.ctor(class [System.Runtime]System.Type)
+      = (
+        01 00 2c 4c 6f 67 69 63 2e 41 73 79 6e 63 41 77 // ..,Logic.AsyncAw
+        61 69 74 45 78 61 6d 70 6c 65 73 2b 3c 43 70 75 // aitExamples+<Cpu
+        42 6f 75 6e 64 41 73 79 6e 63 3e 64 5f 5f 33 00 // BoundAsync>d__3.
+        00                                              // .
+      )
+      // type(class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3')
+    .custom instance void [System.Diagnostics.Debug]System.Diagnostics.DebuggerStepThroughAttribute::.ctor()
+      = (01 00 00 00 )
+    .maxstack 2
+    .locals init (
+      [0] class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3' V_0,
+      [1] valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> V_1
+    )
+
+    IL_0000: newobj       instance void Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::.ctor()
+    IL_0005: stloc.0      // V_0
+    IL_0006: ldloc.0      // V_0
+    IL_0007: ldarg.0      // this
+    IL_0008: stfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>4__this'
+    IL_000d: ldloc.0      // V_0
+    IL_000e: call         valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<!0/*int64*/> valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64>::Create()
+    IL_0013: stfld        valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>t__builder'
+    IL_0018: ldloc.0      // V_0
+    IL_0019: ldc.i4.m1
+    IL_001a: stfld        int32 Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>1__state'
+    IL_001f: ldloc.0      // V_0
+    IL_0020: ldfld        valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>t__builder'
+    IL_0025: stloc.1      // V_1
+    IL_0026: ldloca.s     V_1
+    IL_0028: ldloca.s     V_0
+    IL_002a: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64>::Start<class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'>(!!0/*class Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'*/&)
+    IL_002f: ldloc.0      // V_0
+    IL_0030: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64> Logic.AsyncAwaitExamples/'<CpuBoundAsync>d__3'::'<>t__builder'
+    IL_0035: call         instance class [System.Runtime]System.Threading.Tasks.Task`1<!0/*int64*/> valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<int64>::get_Task()
+    IL_003a: ret
+
+  } // end of method AsyncAwaitExamples::CpuBoundAsync
+
+  .method public final hidebysig virtual newslot instance class [System.Runtime]System.Threading.Tasks.Task`1<bool>
+    ComplexCPUBoundLogicAsync() cil managed
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.AsyncStateMachineAttribute::.ctor(class [System.Runtime]System.Type)
+      = (
+        01 00 38 4c 6f 67 69 63 2e 41 73 79 6e 63 41 77 // ..8Logic.AsyncAw
+        61 69 74 45 78 61 6d 70 6c 65 73 2b 3c 43 6f 6d // aitExamples+<Com
+        70 6c 65 78 43 50 55 42 6f 75 6e 64 4c 6f 67 69 // plexCPUBoundLogi
+        63 41 73 79 6e 63 3e 64 5f 5f 34 00 00          // cAsync>d__4..
+      )
+      // type(class Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4')
+    .custom instance void [System.Diagnostics.Debug]System.Diagnostics.DebuggerStepThroughAttribute::.ctor()
+      = (01 00 00 00 )
+    .maxstack 2
+    .locals init (
+      [0] class Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4' V_0,
+      [1] valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> V_1
+    )
+
+    IL_0000: newobj       instance void Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::.ctor()
+    IL_0005: stloc.0      // V_0
+    IL_0006: ldloc.0      // V_0
+    IL_0007: ldarg.0      // this
+    IL_0008: stfld        class Logic.AsyncAwaitExamples Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>4__this'
+    IL_000d: ldloc.0      // V_0
+    IL_000e: call         valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<!0/*bool*/> valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::Create()
+    IL_0013: stfld        valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>t__builder'
+    IL_0018: ldloc.0      // V_0
+    IL_0019: ldc.i4.m1
+    IL_001a: stfld        int32 Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>1__state'
+    IL_001f: ldloc.0      // V_0
+    IL_0020: ldfld        valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>t__builder'
+    IL_0025: stloc.1      // V_1
+    IL_0026: ldloca.s     V_1
+    IL_0028: ldloca.s     V_0
+    IL_002a: call         instance void valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::Start<class Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'>(!!0/*class Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'*/&)
+    IL_002f: ldloc.0      // V_0
+    IL_0030: ldflda       valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool> Logic.AsyncAwaitExamples/'<ComplexCPUBoundLogicAsync>d__4'::'<>t__builder'
+    IL_0035: call         instance class [System.Runtime]System.Threading.Tasks.Task`1<!0/*bool*/> valuetype [System.Threading.Tasks]System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<bool>::get_Task()
+    IL_003a: ret
+
+  } // end of method AsyncAwaitExamples::ComplexCPUBoundLogicAsync
+
+  .method public hidebysig instance void
+    IntensiveCalculation(
+      valuetype [System.Runtime]System.Threading.CancellationToken token
+    ) cil managed
+  {
+    .maxstack 8
+
+    // [96 9 - 96 10]
+    IL_0000: nop
+
+    // [97 13 - 97 20]
+    IL_0001: br.s         IL_0003
+
+    // [98 9 - 98 10]
+    IL_0003: ret
+
+  } // end of method AsyncAwaitExamples::IntensiveCalculation
+
+  .method private hidebysig instance int64
+    '<CpuBoundAsync>b__3_0'() cil managed
+  {
+    .custom instance void [System.Runtime]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor()
+      = (01 00 00 00 )
+    .maxstack 8
+
+    // [77 41 - 77 72]
+    IL_0000: ldarg.0      // this
+    IL_0001: ldfld        class Logic.Interfaces.IOtherWork Logic.AsyncAwaitExamples::_otherWork
+    IL_0006: ldc.i4.s     100 // 0x64
+    IL_0008: conv.i8
+    IL_0009: callvirt     instance int64 Logic.Interfaces.IOtherWork::SlowCalculation(int64)
+    IL_000e: ret
+
+  } // end of method AsyncAwaitExamples::'<CpuBoundAsync>b__3_0'
+} // end of class Logic.AsyncAwaitExamples
