@@ -24,10 +24,12 @@ namespace Logic
     ///     https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/how-to-extend-the-async-walkthrough-by-using-task-whenall
     /// </Resources>
     /// <General>
-    ///     The compiler under the covers creates an asynchronous state machine as a struct on the stack
-    ///     When an I/O operation starts, code on that thread ends allowing the thread to be returned to the thread pool, examples are calls to external servers, etc that might be long running
+    ///     The compiler covers creates an asynchronous state machine as a struct on the stack
+    ///     When an I/O operation starts, code on that thread ends allowing the thread to be returned
+    ///     to the thread pool, examples are calls to external servers, etc that might be long running
     ///     When the I/O operation returns then a new thread begins the work from the await
-    ///     It is moved to heap inside the AwaitUnsafeOnCompleted function and deeper still is cast to IAsyncStateMachine which triggers boxing
+    ///     It is moved to heap inside the AwaitUnsafeOnCompleted function and deeper still is cast to
+    ///     IAsyncStateMachine which triggers boxing
     ///     This call may be skipped if the task we await ends before the taskAwaiter.IsComplete is checked. 
     ///     The operating system performs a wake up call that grabs a new thread from the thread pool  
     /// </General>    
@@ -39,8 +41,6 @@ namespace Logic
         {
             _otherWork = otherWork;
         }
-        
-        //IAsyncStateMachine 
 
         /// <summary>
         ///     I/O bound code is an appropriate example of when to use async code.
@@ -54,7 +54,7 @@ namespace Logic
             // All local variables are pulled into an IAsyncStateMachine as private members in 
             // the Intermediate Language
             HttpClient client = new HttpClient();
-            
+
             // In the IL code we have helper methods to determine when we should continue execution
             // Some examples of these methods include
             // MoveNext()
@@ -63,7 +63,7 @@ namespace Logic
             // AwaitUnsafeOnCompleted
             // GetResult()
             // SetStateMachine()
-            
+
 
             // Allows us to run both tasks concurrently then await both responses
             var taskOne = client.GetAsync("http://localhost:5003/api/Example/CpuBoundAsync");
@@ -89,7 +89,6 @@ namespace Logic
         public async Task<long> CpuBoundAsync()
         {
             return await Task.Run(() => _otherWork.SlowCalculation(100));
-     
         }
 
 
@@ -98,10 +97,10 @@ namespace Logic
             var tokenSource = new CancellationTokenSource();
             CancellationToken token = tokenSource.Token;
             Task t;
-            
+
             // Create a thread safe data structure to contain the tasks that will be executed
             var tasks = new ConcurrentBag<Task>();
-            t = Task.Factory.StartNew( () => IntensiveCalculation(token), token);
+            t = Task.Factory.StartNew(() => IntensiveCalculation(token), token);
             tasks.Add(t);
             return true;
         }
